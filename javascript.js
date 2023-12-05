@@ -12,17 +12,10 @@ function getCompChoice() {
     }
 }
 
+
 function playRound(playerSelect, compSelect) {
 
-    playerSelect = playerSelect.toLowerCase();
-    playerSelect = playerSelect.replace(playerSelect[0], playerSelect[0].toUpperCase());
-
-    if (playerSelect == compSelect){
-        playerChoice = prompt("TIE, try again! Type your move: ");
-        playRound(playerChoice,  getCompChoice());
-
-
-    } else if (playerSelect == "Rock") {
+    if (playerSelect == "Rock") {
         
         if (compSelect == "Paper") {
             console.log("You Lose! Paper beats Rock");
@@ -52,13 +45,41 @@ function playRound(playerSelect, compSelect) {
             console.log("You Win! Scissors beats Paper");
             return 1;
         }
-
-    } else {
-        playerChoice = prompt("Not valid, try again: ");
-        playRound(playerChoice,  getCompChoice());
     }
 
+}
 
+function isValid(playerSelect) {
+
+    if (playerSelect == "Rock" || playerSelect == "Paper" || playerSelect == "Scissors") {
+        return playerSelect;
+    }
+    while (true) {
+        playerSelect = prompt("Not valid, try again: ");
+        playerSelect = playerSelect.toLowerCase();
+        playerSelect = playerSelect.replace(playerSelect[0], playerSelect[0].toUpperCase());
+
+        if (playerSelect == "Rock" || playerSelect == "Paper" || playerSelect == "Scissors") {
+            return playerSelect;
+        }
+    }
+}
+
+function noTie(playerSelect, compSelect) {
+
+    if (playerSelect != compSelect){
+        return playerSelect, compSelect;
+    }
+    while (true) {
+        playerSelect = prompt("TIE, try again! Type your move: ");
+        playerSelect = playerSelect.toLowerCase();
+        playerSelect = playerSelect.replace(playerSelect[0], playerSelect[0].toUpperCase());
+        compSelect = getCompChoice();
+
+        if (playerSelect != compSelect) {
+            return playerSelect, compSelect;
+        }
+    }
 }
 
 function game() {
@@ -69,12 +90,19 @@ function game() {
 
     while (leader < 3) {
 
-        let playerChoice = prompt("Rock...Paper...Scissors! Type your move: ");
-        let result = playRound(playerChoice,  getCompChoice());
+        let playerSelect = prompt("Rock...Paper...Scissors! Type your move: ");
+        playerSelect = playerSelect.toLowerCase();
+        playerSelect = playerSelect.replace(playerSelect[0], playerSelect[0].toUpperCase());
+
+        validPlayer = isValid(playerSelect);
+        validPlayer, validComp = noTie(validPlayer, getCompChoice());
+
+
+        let result = playRound(validPlayer,  validComp);
 
         if (result == 0){
             comp++;
-        } else {
+        } else if (result == 1){
             player++;
         }
 
@@ -93,8 +121,5 @@ function game() {
     }
 }
 
+
 console.log(game());
-
-
-
-
