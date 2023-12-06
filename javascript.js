@@ -1,9 +1,38 @@
 
 var playerScore = 0;
 var compScore = 0;
+var leader = 0;
+
+var rockBtn = document.getElementById("Rock");
+var paperBtn = document.getElementById("Paper");
+var scissorsBtn = document.getElementById("Scissors");
+
+rockBtn.addEventListener("click", function() {
+    roundResult = playRound("Rock", getCompChoice());
+    scoreKeep(roundResult);
+    score.textContent = playerScore + " -- " + compScore;
+    game();
+});
+paperBtn.addEventListener("click", function() {
+    roundResult = playRound("Paper", getCompChoice());
+    scoreKeep(roundResult);
+    score.textContent = playerScore + " -- " + compScore;
+    game();
+});
+scissorsBtn.addEventListener("click", function() {
+    roundResult = playRound("Scissors", getCompChoice());
+    scoreKeep(roundResult);
+    score.textContent = playerScore + " -- " + compScore;
+    game();
+});
+
+const score = document.createElement('div');
+score.textContent = "0 -- 0";
+const results = document.getElementById('results');
+results.appendChild(score);
+score.style.display = "inline";
 
 const output = document.createElement('div');
-
 
 function getCompChoice() {
     // get a random num between 1 and 3
@@ -76,50 +105,6 @@ function playRound(playerSelect, compSelect) {
 
 }
 
-
-// function noTie(playerSelect, compSelect) {
-
-//     if (playerSelect != compSelect){
-//         return playerSelect, compSelect;
-//     }
-//     while (true) {
-//         playerSelect = prompt("TIE, try again! Type your move: ");
-//         playerSelect = playerSelect.toLowerCase();
-//         playerSelect = playerSelect.replace(playerSelect[0], playerSelect[0].toUpperCase());
-//         compSelect = getCompChoice();
-
-//         if (playerSelect != compSelect) {
-//             return playerSelect, compSelect;
-//         }
-//     }
-// }
-
-const score = document.createElement('div');
-score.textContent = "0 -- 0";
-const results = document.getElementById('results');
-results.appendChild(score);
-score.style.display = "inline";
-
-var rockBtn = document.getElementById("Rock");
-var paperBtn = document.getElementById("Paper");
-var scissorsBtn = document.getElementById("Scissors");
-
-rockBtn.addEventListener("click", function() {
-    roundResult = playRound("Rock", getCompChoice());
-    scoreKeep(roundResult);
-    score.textContent = playerScore + " -- " + compScore;
-});
-paperBtn.addEventListener("click", function() {
-    roundResult = playRound("Paper", getCompChoice());
-    scoreKeep(roundResult);
-    score.textContent = playerScore + " -- " + compScore;
-});
-scissorsBtn.addEventListener("click", function() {
-    roundResult = playRound("Scissors", getCompChoice());
-    scoreKeep(roundResult);
-    score.textContent = playerScore + " -- " + compScore;
-});
-
 function scoreKeep(roundResult) {
 
     if (roundResult == 1){
@@ -130,58 +115,41 @@ function scoreKeep(roundResult) {
 }
 
 
+const endMess = document.getElementById('end-mess');
+const gameResult = document.createElement('h2');
 
+const playAgainBtn = document.createElement('button');
+playAgainBtn.textContent = "Play Again";
 
-// function game() {
+playAgainBtn.addEventListener("click", function() {
+    gameResult.remove();
+    playAgainBtn.remove();
+    rockBtn.disabled = false;
+    paperBtn.disabled = false;
+    scissorsBtn.disabled = false;
 
-//     let leader = 0;
-//     let player = 0;
-//     let comp = 0;
+    playerScore = 0;
+    compScore = 0;
+    score.textContent = playerScore + " -- " + compScore;
 
-//     while (leader < 3) {
+});
 
-//         let playerSelect = prompt("Rock...Paper...Scissors! Type your move: ");
-//         playerSelect = playerSelect.toLowerCase();
-//         playerSelect = playerSelect.replace(playerSelect[0], playerSelect[0].toUpperCase());
+function game() {
+    var leader = Math.max(playerScore, compScore);
 
-//         validPlayer = isValid(playerSelect);
-//         validPlayer, validComp = noTie(validPlayer, getCompChoice());
+    if (leader == 3){
+        if (playerScore == 3){
+            gameResult.textContent = "NICE! You won!";
+            endMess.appendChild(gameResult);
+            endMess.appendChild(playAgainBtn);
+        } else if (compScore == 3) {
+            gameResult.textContent = "OOPS! You lost!";
+            endMess.appendChild(gameResult);
+            endMess.appendChild(playAgainBtn);
+        }
 
-
-//         let result = playRound(validPlayer,  validComp);
-
-//         if (result == 0){
-//             comp++;
-//         } else if (result == 1){
-//             player++;
-//         }
-
-//         console.log(player + " - " + comp);
-
-
-//         leader = Math.max(comp, player);
-//     }
-
-//     console.log("GAME");
-
-//     if (comp > player) {
-//         console.log("You lose, sorry :(" );
-//     } else {
-//         console.log("You Win, congrats!");
-//     }
-// } 
-
-// function game() {
-//     let playerSelect = prompt("Rock...Paper...Scissors! Type your move: ");
-//         playerSelect = playerSelect.toLowerCase();
-//         playerSelect = playerSelect.replace(playerSelect[0], playerSelect[0].toUpperCase());
-
-//         validPlayer = isValid(playerSelect);
-//         validPlayer, validComp = noTie(validPlayer, getCompChoice());
-
-
-//         let result = playRound(validPlayer,  validComp);
-// }
-
-
-//console.log(game());
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
+    }
+}
