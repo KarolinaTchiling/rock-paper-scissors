@@ -44,6 +44,24 @@ img {
     /* Set other styles as needed */
 }
 
+.player-lizard-gif {
+    transform: rotate(-15deg) scaleX(-1);
+    position: absolute;
+    top: 55.1%;
+    left: -39%;
+    width: 100%;
+    height: auto;
+}
+
+.comp-lizard-gif {
+    transform: rotate(-14deg);
+    position: absolute;
+    top: 52.7%;
+    left: 49.9%;
+    width: 36.2%;
+    height: auto;
+}
+
 .player-lizard {
     transform: rotate(-15deg) scaleX(-1);
     position: absolute;
