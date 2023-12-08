@@ -168,4 +168,66 @@ startBtn.addEventListener("click", function() {
    
 });
 
+orangeBtn.addEventListener("click", function() {
+    roundResult = playRound("o", getCompChoice());
+    // scoreKeep(roundResult);
+    // score.textContent = playerScore + " -- " + compScore;
+    // game();
+});
+yellowBtn.addEventListener("click", function() {
+    roundResult = playRound("y", getCompChoice());
+    // scoreKeep(roundResult);
+    // score.textContent = playerScore + " -- " + compScore;
+    // game();
+});
+blueBtn.addEventListener("click", function() {
+    roundResult = playRound("b", getCompChoice());
+    // scoreKeep(roundResult);
+    // score.textContent = playerScore + " -- " + compScore;
+    // game();
+});
+
+
+/// make this function work NEXT!!
+function playRound(playerSelect, compSelect) {
+
+    if (playerSelect == compSelect){
+        output.remove();
+        output.textContent = "TIE";
+        results.appendChild(output);
+        return;
+    }
+
+    if (playerSelect == "Rock") {
+        
+        if (compSelect == "Paper") {
+
+            output.remove();
+            output.textContent = "You Lose! Paper beats Rock";
+            results.appendChild(output);
+            return 0;
+
+        } else { //compSelect == "Scissors" 
+            output.remove();
+            output.textContent = "You Win! Rock beats Scissors";
+            results.appendChild(output);
+            return 1;
+        }
+    
+    } else if (playerSelect == "Paper") {
+
+        if (compSelect == "Scissors") {
+            output.remove();
+            output.textContent = "You Lose! Scissors beats Paper";
+            results.appendChild(output);
+            return 0;
+        } else { //compSelect == "Rock" 
+            output.remove();
+            output.textContent = "You Win! Paper beats Rock";
+            results.appendChild(output);
+            return 1;
+        }
+    }
+}
+
 
