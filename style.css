@@ -62,5 +62,32 @@ img {
     height: auto;
 }
 
+.title {
+    /* width: 50%; 
+    height: 20%; 
+    background-color: #ffffff; 
+    border: 1px solid #ccc; */
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    font-size: 2vw;
+}
+
+#game-container {
+    width: 60%; 
+    height: 35%; 
+    background-color: #ffffff; 
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 35%;
+    left: 37%;
+    transform: translate(-50%, -50%); 
+    /* text-align: center;
+    font-size: 2vw; */
+}
+
+
 
 
