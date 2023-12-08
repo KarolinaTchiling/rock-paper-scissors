@@ -1,0 +1,66 @@
+
+body {  
+    /* Set background color as a fallback */
+    background-color: #f0f0f0;
+    /* Remove default margin and padding */
+    margin: 0;
+    padding: 0;
+    /* Make the body a flex container to center the image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Set the height to 100% to fill the entire viewport */
+    height: 100vh;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    overflow: hidden;
+}
+
+
+img {
+    /* Set the max-width to ensure the image doesn't exceed the viewport width */
+    max-width: 100%;
+    /* Set other styles as needed */
+}
+
+.background {
+    opacity: 0.85;
+    max-width: 100%; 
+}
+
+.female-lizard {
+    transform: rotate(10deg);
+    position: absolute;
+    top: 28.5%;
+    left: 77.5%;
+    /* transform: translate(-50%, -50%); */
+    width: 10%;
+    height: auto;
+    /* Adjust the z-index to control the stacking order */
+    z-index: 2;
+    /* Set other styles as needed */
+}
+
+.player-lizard {
+    transform: rotate(-15deg) scaleX(-1);
+    position: absolute;
+    top: 70%;
+    left: -38%;
+    width: 100%;
+    height: auto;
+}
+
+.comp-lizard {
+    transform: rotate(-14deg);
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    width: 35%;
+    height: auto;
+}
+
+
+
