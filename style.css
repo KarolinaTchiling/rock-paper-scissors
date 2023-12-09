@@ -34,14 +34,11 @@ img {
 .female-lizard {
     transform: rotate(10deg);
     position: absolute;
-    top: 28.5%;
+    top: 30%;
     left: 77.5%;
-    /* transform: translate(-50%, -50%); */
     width: 10%;
     height: auto;
-    /* Adjust the z-index to control the stacking order */
     z-index: 2;
-    /* Set other styles as needed */
 }
 
 .player-lizard-gif {
@@ -65,18 +62,18 @@ img {
 .player-lizard {
     transform: rotate(-15deg) scaleX(-1);
     position: absolute;
-    top: 70%;
-    left: -38%;
-    width: 100%;
+    top: 53.7%;
+    left: -17.9%;
+    width: 65.2%;
     height: auto;
 }
 
 .comp-lizard {
     transform: rotate(-14deg);
     position: absolute;
-    top: 53%;
-    left: 50%;
-    width: 35%;
+    top: 63.2%;
+    left: 54%;
+    width: 32.8%;
     height: auto;
 }
 
@@ -105,6 +102,19 @@ img {
     /* text-align: center;
     font-size: 2vw; */
 }
+
+.blue-btn {
+    position: absolute;
+    border-radius: 50%; 
+    /* padding: 50px;  */
+    top: 50%;
+    left: 50%;
+    width: 10%;
+    height: 10%;
+
+}
+
+
 
 
 

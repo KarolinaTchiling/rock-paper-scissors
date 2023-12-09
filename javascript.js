@@ -32,10 +32,13 @@ const gameContainer = document.getElementById("game-container");
 
 const orangeBtn = document.createElement('button');
 orangeBtn.textContent = "Orange";
+// orangeBtn.classList.add("lizard-buttons");
 const yellowBtn = document.createElement('button');
 yellowBtn.textContent = "Yellow";
+// yellowBtn.classList.add("lizard-buttons");
 const blueBtn = document.createElement('button');
 blueBtn.textContent = "Blue";
+blueBtn.classList.add("blue-btn");
 
 const score = document.createElement('div');
 score.textContent = "0 -- 0";
