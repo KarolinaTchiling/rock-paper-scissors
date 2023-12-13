@@ -16,26 +16,27 @@ const backBtn = document.createElement('button');
 backBtn.textContent = "Go Back";
 const lizardText = document.createElement('div');
 
+const oText = document.createElement('p');
+oText.classList.add("lizard-text");
+oText.textContent = "Orange-throated males are “ultra-dominant” and defend large territories. They  are the most aggressive morph and excel at stealing mates from the weaker blue-throated individuals. However, they are vulnerable to cuckoldy by the yellow-throated female mimics."
+lizardText.appendChild(oText);
+
+const bText = document.createElement('p');
+bText.classList.add("lizard-text");
+bText.textContent = "Blue-throated males are dominant and engage in intensive mate guarding. Due to their small territories and vigilance they excel at catching yellow-throated sneaks. However, they are susceptible to having their mates stolen by the larger, more aggressive orange-throated males."
+lizardText.appendChild(bText);
+
+const yText = document.createElement('p');
+yText.classList.add("lizard-text");
+yText.textContent = 'Yellow-throated males are “sneakers”. Their coloration is similar to that of sexually mature females, and they mimic female "rejection" displays when they encounter the other more dominant males. However, they are easily overpowered by the protective blue-throated males but excel at sneaking past the distracted orange-throated males.'
+lizardText.appendChild(yText);
+lizardText.appendChild(backBtn);
+
+
 
 // More Info
 moreBtn.addEventListener("click", function() {
     gameContent.remove();
-
-    const oText = document.createElement('p');
-    oText.classList.add("lizard-text");
-    oText.textContent = "Orange-throated males are “ultra-dominant” and defend large territories. They  are the most aggressive morph and excel at stealing mates from the weaker blue-throated individuals. However, they are vulnerable to cuckoldy by the yellow-throated female mimics."
-    lizardText.appendChild(oText);
-
-    const bText = document.createElement('p');
-    bText.classList.add("lizard-text");
-    bText.textContent = "Blue-throated males are dominant and engage in intensive mate guarding. Due to their small territories and vigilance they excel at catching yellow-throated sneaks. However, they are susceptible to having their mates stolen by the larger, more aggressive orange-throated males."
-    lizardText.appendChild(bText);
-
-    const yText = document.createElement('p');
-    yText.classList.add("lizard-text");
-    yText.textContent = 'Yellow-throated males are “sneakers”. Their coloration is similar to that of sexually mature females, and they mimic female "rejection" displays when they encounter the other more dominant males. However, they are easily overpowered by the protective blue-throated males but excel at sneaking past the distracted orange-throated males.'
-    lizardText.appendChild(yText);
-    lizardText.appendChild(backBtn);
     gameContainer.appendChild(lizardText);
 })
 
