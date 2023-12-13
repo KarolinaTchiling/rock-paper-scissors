@@ -1,34 +1,30 @@
 
 body {  
-    /* Set background color as a fallback */
     background-color: #f0f0f0;
-    /* Remove default margin and padding */
     margin: 0;
     padding: 0;
-    /* Make the body a flex container to center the image */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Set the height to 100% to fill the entire viewport */
     height: 100vh;
     position: relative;
     font-family: sans-serif;
 }
 
 .container {
+    background-color: #FFDB91;
+    width: 100%;
     position: relative;
     overflow: hidden;
 }
 
 
 img {
-    /* Set the max-width to ensure the image doesn't exceed the viewport width */
     max-width: 100%;
-    /* Set other styles as needed */
 }
 
 .background {
-    opacity: 0.85;
+    opacity: 1;
     max-width: 100%; 
 }
 
@@ -80,10 +76,6 @@ img {
 }
 
 .title {
-    /* width: 50%; 
-    height: 20%; 
-    background-color: #ffffff; 
-    border: 1px solid #ccc; */
     position: absolute;
     top: 6%;
     left: 31.5%;
@@ -166,7 +158,7 @@ ul {
 
 }
 
-#start:active {
+#start:hover {
     background-color: #2980b9;
 }
 
@@ -248,7 +240,7 @@ ul {
     padding: 15px;
     border-radius: 25px;
     width: 30%; 
-    height: 19%; 
+    height: 20%; 
     background-color: #ffffff91; 
     border:2px solid #000000;
     position: absolute;
@@ -258,6 +250,115 @@ ul {
     font-size: 1vw;
     text-align: center;
 }
+
+.end-container {
+    padding: 15px;
+    border-radius: 25px;
+    width: 36%; 
+    height: 30%; 
+    background-color: #ffffff91; 
+    border:2px solid #000000;
+    position: absolute;
+    top: 30%;
+    left: 43.5%;
+    transform: translate(-50%, -50%); 
+    font-size: 1vw;
+    text-align: center;
+}
+
+.player-crown {
+    position: absolute;
+    top: 49%;
+    left: 29%;
+    width: 8%;
+    height: auto;
+}
+
+.player-hearts {
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    width: 20%;
+    height: auto;
+}
+
+.comp-crown {
+    position: absolute;
+    top: 61.5%;
+    left: 54.8%;
+    width: 3.5%;
+    height: auto;
+}
+
+.female-hearts {
+    position: absolute;
+    top: 30%;
+    left: 75%;
+    width: 10%;
+    height: auto;
+
+}
+
+.play-again-btn {
+    background-color: rgb(122, 190, 253);
+    color:#000000;
+    width: 40%;
+    font-size: 180%;
+    border-radius: 8px;
+    margin-top: 4%;
+    border: 0;
+    padding: 0.6%;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+
+}
+
+.play-again-btn:hover {
+    background-color: #2980b9;
+}
+
+.transition {
+    animation-name: fadeIn;
+    animation-duration: 2.5s;
+}
+
+#credits {
+    position: absolute;
+    top: 95%;
+    left: 49%;
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    font-size: 1.0vw;
+    font-weight: 800;
+    color: black; 
+}
+
+#git-logo {
+    position: absolute;
+    transform: translate(-50%, -50%); 
+    top: 96.5%;
+    left: 57.3%;
+    width: 1.8%;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;    
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
 
 
 

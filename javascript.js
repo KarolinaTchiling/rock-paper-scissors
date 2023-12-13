@@ -260,48 +260,106 @@ function scoreKeep(roundResult) {
     }
 }
 
+const endContainer = document.createElement('div');
+endContainer.classList.add("end-container", "transition");
+
 const endMessage = document.createElement('div');
 const playAgainBtn = document.createElement('button');
+playAgainBtn.classList.add("play-again-btn");
 playAgainBtn.textContent = "Play Again";
 
+const endHead = document.createElement('h1');
+const endText = document.createElement('h2');
+endText.style.fontWeight = "normal";
+
+const hearts = document.createElement('img');
+const playerCrown = document.createElement('img');
+const playerHeart = document.createElement('img');
+const compCrown = document.createElement('img');
+
+
+function playerWon (){
+    // endContainer.style.animation = "enable";
+    container.appendChild(endContainer);
+    endHead.textContent = "Congratulations!"
+    endText.textContent = "You have leveraged your strengths when you needed them most and won the evolutionary game of rock paper scissors. Your legacy will live on!";
+    endContainer.appendChild(endHead);
+    endContainer.appendChild(endText);
+
+    endContainer.appendChild(playAgainBtn);
+
+    hearts.src = "images/female-hearts.png";
+    hearts.classList.add('female-hearts', "transition");
+    container.appendChild(hearts);
+
+    playerCrown.src = "images/crown.png";
+    playerCrown.classList.add('player-crown', 'transition');
+    container.appendChild(playerCrown);
+    playerHeart.src = "images/hearts.png";
+    playerHeart.classList.add('player-hearts', 'transition');
+    container.appendChild(playerHeart);
+}
+
+function compWon (){
+    container.appendChild(endContainer);
+    endHead.textContent = "You Lost!"
+    endText.textContent = "Whether it was a skill issue or bad luck, you found yourself at the wrong place and at the wrong time.  Either way, you were unsuccessful at finding a mate. You have brought shame to your bloodline.";
+    endContainer.appendChild(endHead);
+    endContainer.appendChild(endText);
+
+    endContainer.appendChild(playAgainBtn);
+
+    hearts.src = "images/female-hearts.png";
+    hearts.classList.add('female-hearts', "transition");
+    container.appendChild(hearts);
+
+    compCrown.src = "images/comp-crown.png";
+    compCrown.classList.add('comp-crown', 'transition');
+    container.appendChild(compCrown);
+}
+
+
+function endGame() {
+    orangeBtn.style.visibility="hidden";
+    yellowBtn.style.visibility="hidden";
+    blueBtn.style.visibility="hidden";
+
+    ballImg.style.animation = "fadeOut 1.5s forwards";
+    morphText.style.animation = "fadeOut 1.5s forwards";
+
+}
 
 function game() {
     let leader = Math.max(playerScore, compScore);
 
     if (leader == 3){
-        if (playerScore == 3){
-            endMessage.textContent = "NICE! You won!";
-            gameContainer.appendChild(endMessage);
-            gameContainer.appendChild(playAgainBtn);
-        } else if (compScore == 3) {
-            endMessage.textContent = "OOPs! You lost!";
-            gameContainer.appendChild(endMessage);
-            gameContainer.appendChild(playAgainBtn);
-        }
+        endGame();
 
-        orangeBtn.disabled = true;
-        yellowBtn.disabled = true;
-        blueBtn.disabled = true;
+        if (playerScore == 3){
+            setTimeout(playerWon, 1500);
+        } else if (compScore == 3) {
+            setTimeout(compWon, 1500);
+        }
     }
 }
 
-playAgainBtn.addEventListener("click", function() {
-    output.remove();
-    endMessage.remove();
-    playAgainBtn.remove();
-    orangeBtn.disabled = false;
-    yellowBtn.disabled = false;
-    blueBtn.disabled = false;
-    orangeLizardComp.remove();
-    yellowLizardComp.remove();
-    blueLizardComp.remove();
-    orangeLizardPlayer.remove();
-    yellowLizardPlayer.remove();
-    blueLizardPlayer.remove();
 
+playAgainBtn.addEventListener("click", function() {
+
+    endContainer.remove();
+    hearts.remove();
+    playerCrown.remove();
+    playerHeart.remove();
+    compCrown.remove();
+    roundContainer.remove();
 
     playerScore = 0;
     compScore = 0;
-    score.textContent = playerScore + " -- " + compScore;
+    score.textContent = playerScore + " " + compScore;
 
+    ballImg.style.animation = "fadeIn 1.5s forwards";
+    morphText.style.animation = "fadeIn 1.5s forwards";
+    orangeBtn.style.visibility="visible";
+    yellowBtn.style.visibility="visible";
+    blueBtn.style.visibility="visible";
 });
