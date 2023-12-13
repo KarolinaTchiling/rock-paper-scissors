@@ -1,5 +1,7 @@
-# rock-paper-scissors
+# rock-paper-scissors - Evolutionary Rochambeau
 
+Simple console game of rock paper scissors with the addition of a lizard themed web UI.
 
-Simple console game of rock paper scissors to practice JavaScript. 
 Part of The Odin Project.
+
+See it live: https://karolinatchiling.github.io/rock-paper-scissors/
